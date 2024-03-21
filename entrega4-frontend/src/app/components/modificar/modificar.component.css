@@ -1,0 +1,22 @@
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.button-group button {
+    margin-right: 10px;
+    /* Ajusta el espacio entre botones según tu preferencia */
+    flex: 1;
+    /* Hace que los botones ocupen el mismo espacio dentro del contenedor */
+    min-width: 140px;
+    /* Establece un ancho mínimo para los botones */
+    background-color: #0070b2;
+    color: white;
+}
+
+/* Para evitar que el último botón tenga margen derecho */
+.button-group button:last-child {
+    margin-right: 0;
+}
