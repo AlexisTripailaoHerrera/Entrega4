@@ -1,0 +1,10 @@
+.navbar-light .navbar-nav .nav-link {
+    color: #0070b2;
+    font-size: x-large;
+}
+
+.logo {
+    max-width: 200px;
+    height: auto;
+    margin-right: 150px;
+}

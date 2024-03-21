@@ -1,0 +1,25 @@
+<div>
+    <div>
+        <app-nav-bar></app-nav-bar>
+    </div>
+    <div>
+        <div>
+            <label>Nombre:</label>
+            <input type="text" [(ngModel)]="nombre">
+        </div>
+        <div>
+            <label>Apellido:</label>
+            <input type="text" [(ngModel)]="apellido">
+        </div>
+        <div>
+            <label>Rut:</label>
+            <input type="number" [(ngModel)]="rut">
+        </div>
+        <div>
+            <label>DV Rut:</label>
+            <input type="text" [(ngModel)]="rutDv">
+        </div>
+        <button (click)="crearUsuario()">Crear Usuario</button>
+        <div *ngIf="resultado">{{ resultado }}</div>
+    </div>
+</div>

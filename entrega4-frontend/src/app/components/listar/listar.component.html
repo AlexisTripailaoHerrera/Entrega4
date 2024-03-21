@@ -1,0 +1,52 @@
+<div>
+    <app-nav-bar></app-nav-bar>
+    <div class="container mt-5">
+        <table class="table table-striped table-bordered" style="text-align: center; border-color: #003f69;">
+            <thead class="bg-light">
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Rut</th>
+                    <th>Fecha Creación</th>
+                    <th>Fecha Modificación</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let usuario of usuarios; let i = index">
+                    <td>
+                        <div>
+                            <div class="ms-3">
+                                <p class="fw-bold mb-1">{{usuario.id}}</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <p class="fw-normal mb-1">{{usuario.nombre}}</p>
+                    </td>
+                    <td>
+                        <p class="fw-normal mb-1">{{usuario.apellido}}</p>
+                    </td>
+                    <td>
+                        <p class="fw-normal mb-1">{{usuario.rut}}-{{usuario.rutDV}}</p>
+                    </td>
+                    <td>
+                        <p class="fw-normal mb-1">{{usuario.fechaCreacion}}</p>
+                    </td>
+                    <td>
+                        <p class="fw-normal mb-1">{{usuario.fechaModificacion}}</p>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-floating btn-lg" mdbRipple style="margin: 3px;">
+                            <i class="far fa-edit"></i>
+                        </button>
+                        <button (click)="borrarUsuario(usuario.id, i)" style="cursor:pointer;" type="button" class="btn btn-primary btn-floating btn-lg" mdbRipple style="margin: 3px;">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
