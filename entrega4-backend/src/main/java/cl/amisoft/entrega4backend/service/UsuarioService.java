@@ -10,6 +10,8 @@ public interface UsuarioService {
 
     List<UsuarioVo> obtenerUsuarios();
 
+    UsuarioVo obtenerUsuario(Long id);
+
     String actualizarUsuario (Long id, String nuevoNombre, String nuevoApellido, Long nuevoRut, Character nuevoDv);
 
     String eliminarUsuario (Long id);

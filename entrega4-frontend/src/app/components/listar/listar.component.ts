@@ -34,4 +34,9 @@ export class ListarComponent implements OnInit {
       }
     });
   }
+
+  goToEdit(id: any) {
+    localStorage.setItem('id', id);
+    this.router.navigate(['ModificarUsuario']);
+  }
 }

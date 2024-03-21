@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class UsuarioDao {
@@ -39,6 +40,12 @@ public class UsuarioDao {
             return resultList;
         }
         return Collections.emptyList();
+    }
+
+    public Optional<Usuario> obtenerUsuario(Long id){
+        Usuario u = em.createQuery("Select u from Usuario u where u.id = :id", Usuario.class).
+                setParameter("id", id).getSingleResult();
+        return Optional.ofNullable(u);
     }
 
     public String actualizarUsuario (Long id, String nuevoNombre, String nuevoApellido, Long nuevoRut, Character nuevoDv){

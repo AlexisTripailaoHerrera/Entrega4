@@ -39,6 +39,11 @@ public class UsuarioController {
         return usuarioService.obtenerUsuarios();
     }
 
+    @GetMapping(value = "/{id}", produces = "application/json")
+    public UsuarioVo obtenerUsuario(@PathVariable(name = "id") Long id){
+        return usuarioService.obtenerUsuario(id);
+    }
+
 
     @PutMapping(consumes = "application/json")
     public String actualizarUsuario(@RequestBody UsuarioActualizarRequest request) {

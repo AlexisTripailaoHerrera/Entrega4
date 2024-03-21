@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -50,6 +51,21 @@ public class UsuarioServiceImpl implements UsuarioService {
                     .build()).collect(Collectors.toList());
         }
         return Collections.emptyList();
+    }
+
+    @Override
+    public UsuarioVo obtenerUsuario(Long id){
+        Optional<Usuario> usuario = usuarioDao.obtenerUsuario(id);
+        if (usuario.isPresent()){
+            return new UsuarioVo.Builder()
+                    .id(usuario.get().getId())
+                    .nombre(usuario.get().getNombre())
+                    .apellido(usuario.get().getApellido())
+                    .rut(usuario.get().getRut())
+                    .rutDV(usuario.get().getRutDv())
+                    .build();
+        }
+        return new UsuarioVo();
     }
 
     @Override
