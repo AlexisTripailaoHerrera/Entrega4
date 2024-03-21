@@ -48,20 +48,18 @@ public class UsuarioDao {
         return Optional.ofNullable(u);
     }
 
-    public String actualizarUsuario (Long id, String nuevoNombre, String nuevoApellido, Long nuevoRut, Character nuevoDv){
-        List<Usuario> resultList = em.createQuery("Select u from Usuario u where u.id = :id", Usuario.class).setParameter("id", id).getResultList();
-        if (!resultList.isEmpty()) {
-            Usuario user = em.find(Usuario.class, id);
+    public Usuario actualizarUsuario(Long id, String nuevoNombre, String nuevoApellido, Long nuevoRut, Character nuevoDv) {
+        Usuario user = em.find(Usuario.class, id);
+        if (user != null) {
             user.setNombre(nuevoNombre);
             user.setApellido(nuevoApellido);
             user.setRut(nuevoRut);
             user.setRutDv(nuevoDv);
             em.merge(user);
-            return "Usuario actualizado correctamente";
-        }else{
-            return "No se encontró el usuario";
         }
+        return user;
     }
+
 
     public String eliminarUsuario (Long id){
         Usuario usuario = em.find(Usuario.class, id);

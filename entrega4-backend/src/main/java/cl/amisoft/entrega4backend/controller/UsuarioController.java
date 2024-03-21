@@ -3,9 +3,11 @@ package cl.amisoft.entrega4backend.controller;
 import cl.amisoft.entrega4backend.dto.UsuarioActualizarRequest;
 import cl.amisoft.entrega4backend.dto.UsuarioCrearRequest;
 import cl.amisoft.entrega4backend.dto.UsuarioEliminarRequest;
+import cl.amisoft.entrega4backend.model.Usuario;
 import cl.amisoft.entrega4backend.service.UsuarioService;
 import cl.amisoft.entrega4backend.vo.UsuarioVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -45,15 +47,17 @@ public class UsuarioController {
     }
 
 
-    @PutMapping(consumes = "application/json")
-    public String actualizarUsuario(@RequestBody UsuarioActualizarRequest request) {
-        String resultado = usuarioService.actualizarUsuario(request.getId(), request.getNuevoNombre(), request.getNuevoApellido(), request.getNuevoRut(), request.getNuevoDv());
-        if (Objects.equals(resultado, "No se encontró el usuario")) {
-            return resultado;
-        }else{
-            return "Usuario actualizado correctamente";
+    @PutMapping(consumes = "application/json", produces = "application/json")
+    public ResponseEntity<Object> actualizarUsuario(@RequestBody UsuarioActualizarRequest request) {
+        Usuario user = usuarioService.actualizarUsuario(request.getId(), request.getNuevoNombre(), request.getNuevoApellido(), request.getNuevoRut(), request.getNuevoDv());
+
+        if (user != null) {
+            return ResponseEntity.ok().body("{\"message\": \"Usuario actualizado correctamente\"}");
+        } else {
+            return ResponseEntity.notFound().build();
         }
     }
+
 
     @DeleteMapping(consumes = "application/json")
     public String eliminarUsuario (@RequestBody UsuarioEliminarRequest request){

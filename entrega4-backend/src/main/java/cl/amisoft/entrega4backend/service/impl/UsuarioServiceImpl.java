@@ -70,14 +70,10 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     @Transactional
-    public String actualizarUsuario (Long id, String nuevoNombre, String nuevoApellido, Long nuevoRut, Character nuevoDv){
-        String resultado = usuarioDao.actualizarUsuario(id, nuevoNombre, nuevoApellido, nuevoRut, nuevoDv);
-        if (Objects.equals(resultado, "No se encontró el usuario")) {
-            return resultado;
-        }else{
-            return "Usuario actualizado correctamente";
-        }
+    public Usuario actualizarUsuario(Long id, String nuevoNombre, String nuevoApellido, Long nuevoRut, Character nuevoDv) {
+        return usuarioDao.actualizarUsuario(id, nuevoNombre, nuevoApellido, nuevoRut, nuevoDv);
     }
+
 
     @Override
     @Transactional
