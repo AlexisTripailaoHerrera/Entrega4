@@ -2,24 +2,30 @@
     <div>
         <app-nav-bar></app-nav-bar>
     </div>
-    <div>
-        <div>
-            <label>Nombre:</label>
-            <input type="text" [(ngModel)]="nombre">
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <div style="width: 300px; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
+            <div style="margin-top: 20px;">
+                <div style="margin-bottom: 10px;">
+                    <label>Nombre:</label>
+                    <input type="text" [(ngModel)]="nombre" style="display: block; width: 100%;">
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <label>Apellido:</label>
+                    <input type="text" [(ngModel)]="apellido" style="display: block; width: 100%;">
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <label>Rut:</label>
+                    <input type="text" [(ngModel)]="rut" pattern="\d*" style="display: block; width: 100%;">
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <label>DV Rut:</label>
+                    <input type="text" [(ngModel)]="rutDv" style="display: block; width: 100%;">
+                </div>
+                <button (click)="crearUsuario()" style="width: 100%;">Crear Usuario</button>
+                <div *ngIf="resultado" style="margin-top: 10px;">{{ resultado }}</div>
+            </div>
         </div>
-        <div>
-            <label>Apellido:</label>
-            <input type="text" [(ngModel)]="apellido">
-        </div>
-        <div>
-            <label>Rut:</label>
-            <input type="number" [(ngModel)]="rut">
-        </div>
-        <div>
-            <label>DV Rut:</label>
-            <input type="text" [(ngModel)]="rutDv">
-        </div>
-        <button (click)="crearUsuario()">Crear Usuario</button>
-        <div *ngIf="resultado">{{ resultado }}</div>
     </div>
+
+
 </div>
