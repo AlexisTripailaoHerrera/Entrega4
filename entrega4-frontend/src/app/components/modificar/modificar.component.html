@@ -1,2 +1,7 @@
-<p>modificar works!</p>
-<div>{{id}}</div>
+<div *ngIf="usuario">
+    <p>ID: {{ usuario.id }}</p>
+    <p>Nombre: {{ usuario.nombre }}</p>
+    <p>Apellido: {{ usuario.apellido }}</p>
+    <p>RUT: {{ usuario.rut }}</p>
+    <p>DV: {{ usuario.rutDV }}</p>
+</div>

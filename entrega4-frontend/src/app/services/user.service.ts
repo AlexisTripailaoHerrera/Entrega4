@@ -44,6 +44,10 @@ export class UsuarioService {
     );
   }
 
+  obtenerUsuario(id: number): Observable<UsuarioVo> {
+    return this.http.get<UsuarioVo>(`${this.baseUrl}/${id}`);
+  }
+
 
 
 }
