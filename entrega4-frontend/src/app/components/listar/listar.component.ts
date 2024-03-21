@@ -34,8 +34,4 @@ export class ListarComponent implements OnInit {
       }
     });
   }
-
-  goToEdit() {
-    this.router.navigate(['ModificarUsuario'])
-  }
 }
