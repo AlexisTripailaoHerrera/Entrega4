@@ -48,7 +48,15 @@ export class UsuarioService {
     return this.http.get<UsuarioVo>(`${this.baseUrl}/${id}`);
   }
 
-
+  actualizarUsuario(id: number, nuevoNombre: string, nuevoApellido: string, nuevoRut: number, nuevoDv: string): Observable<string> {
+    return this.http.put<string>(this.baseUrl, {
+      id: id,
+      nuevoNombre: nuevoNombre,
+      nuevoApellido: nuevoApellido,
+      nuevoRut: nuevoRut,
+      nuevoDv: nuevoDv
+    });
+  }
 
 }
 

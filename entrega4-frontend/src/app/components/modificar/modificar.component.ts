@@ -5,20 +5,20 @@ import { UsuarioService } from '../../services/user.service';
 @Component({
   selector: 'app-modificar',
   templateUrl: './modificar.component.html',
-  styleUrls: ['./modificar.component.css'] // Corregido 'styleUrl' a 'styleUrls'
+  styleUrls: ['./modificar.component.css']
 })
 export class ModificarComponent implements OnInit {
 
   usuario: UsuarioVo | undefined;
-  id: number | null = null; // Inicializado como null
+  id: number | null = null;
 
   constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
-    const idString = localStorage.getItem('id'); // Obtener el ID como una cadena
+    const idString = localStorage.getItem('id');
     if (idString) {
-      this.id = parseInt(idString); // Convertir la cadena a número
-      this.obtenerUsuario(this.id); // Aquí puedes pasar el ID del usuario que deseas obtener
+      this.id = parseInt(idString);
+      this.obtenerUsuario(this.id);
     }
   }
 
@@ -27,5 +27,17 @@ export class ModificarComponent implements OnInit {
       .subscribe(usuario => this.usuario = usuario);
   }
 
+  actualizarUsuario(): void {
+    if (this.usuario) {
+      const rut = parseInt(this.usuario.rut) !== null ? parseInt(this.usuario.rut) : 0; // Valor predeterminado de 0 si this.nuevoRut es null
+      this.usuarioService.actualizarUsuario(this.usuario.id, this.usuario.nombre, this.usuario.apellido, rut, this.usuario.rutDV)
+        .subscribe(resultado => {
+          console.log(resultado);
+          // Puedes agregar lógica adicional aquí, como redirigir a otra página o mostrar un mensaje de éxito
+        });
+    }
+  }
+
 }
+
 

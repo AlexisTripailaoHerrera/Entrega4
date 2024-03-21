@@ -1,7 +1,20 @@
 <div *ngIf="usuario">
     <p>ID: {{ usuario.id }}</p>
-    <p>Nombre: {{ usuario.nombre }}</p>
-    <p>Apellido: {{ usuario.apellido }}</p>
-    <p>RUT: {{ usuario.rut }}</p>
-    <p>DV: {{ usuario.rutDV }}</p>
+    <p>
+        Nombre:
+        <input type="text" [(ngModel)]="usuario.nombre" name="nombre">
+    </p>
+    <p>
+        Apellido:
+        <input type="text" [(ngModel)]="usuario.apellido" name="apellido">
+    </p>
+    <p>
+        RUT:
+        <input type="text" [(ngModel)]="usuario.rut" name="rut">
+    </p>
+    <p>
+        DV:
+        <input type="text" [(ngModel)]="usuario.rutDV" name="rutDV">
+    </p>
+    <button (click)="actualizarUsuario()">Actualizar</button>
 </div>
