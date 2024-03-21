@@ -38,7 +38,7 @@
                         <p class="fw-normal mb-1">{{usuario.fechaModificacion}}</p>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-primary btn-floating btn-lg" mdbRipple style="margin: 3px;">
+                        <button (click)="goToEdit()" type="button" class="btn btn-primary btn-floating btn-lg" mdbRipple style="margin: 3px;">
                             <i class="far fa-edit"></i>
                         </button>
                         <button (click)="borrarUsuario(usuario.id, i)" style="cursor:pointer;" type="button" class="btn btn-primary btn-floating btn-lg" mdbRipple style="margin: 3px;">
