@@ -82,7 +82,7 @@ public class UsuariosEliminadosVo implements Serializable {
         private Character rutDvEliminado;
         private LocalDate fechaEliminacion;
 
-        public Builder ido(Long id){
+        public Builder id(Long id){
             this.id = id;
             return this;
         }

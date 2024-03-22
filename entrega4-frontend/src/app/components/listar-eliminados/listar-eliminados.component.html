@@ -1,0 +1,39 @@
+<div>
+    <app-nav-bar></app-nav-bar>
+    <div class="container mt-5">
+        <table class="table table-bordered custom-border">
+            <thead class="bg-light">
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Rut</th>
+                    <th>Fecha Eliminación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let eliminado of eliminados">
+                    <td>
+                        <div>
+                            <div class="ms-3">
+                                <p class="fw-bold mb-1">{{eliminado.id}}</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <p class="fw-normal mb-1">{{eliminado.nombreEliminado}}</p>
+                    </td>
+                    <td>
+                        <p class="fw-normal mb-1">{{eliminado.apellidoEliminado}}</p>
+                    </td>
+                    <td>
+                        <p class="fw-normal mb-1">{{eliminado.rutEliminado}}-{{eliminado.rutDvEliminado}}</p>
+                    </td>
+                    <td>
+                        <p class="fw-normal mb-1">{{eliminado.fechaEliminacion}}</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

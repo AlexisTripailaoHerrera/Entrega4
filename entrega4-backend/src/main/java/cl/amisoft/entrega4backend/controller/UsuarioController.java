@@ -6,6 +6,7 @@ import cl.amisoft.entrega4backend.dto.UsuarioEliminarRequest;
 import cl.amisoft.entrega4backend.model.Usuario;
 import cl.amisoft.entrega4backend.service.UsuarioService;
 import cl.amisoft.entrega4backend.vo.UsuarioVo;
+import cl.amisoft.entrega4backend.vo.UsuariosEliminadosVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -68,5 +69,11 @@ public class UsuarioController {
             return "Usuario eliminado correctamente";
         }
     }
+
+    @GetMapping(value = "/eliminados" ,produces = "application/json")
+    public List<UsuariosEliminadosVo> obtenerUsuariosEliminados(){
+        return usuarioService.obtenerUsuariosEliminados();
+    }
+
 
 }

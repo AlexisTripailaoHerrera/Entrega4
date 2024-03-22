@@ -25,6 +25,7 @@ import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListarEliminadosComponent } from './components/listar-eliminados/listar-eliminados.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ListarComponent,
     CrearComponent,
     ModificarComponent,
-    NavBarComponent
+    NavBarComponent,
+    ListarEliminadosComponent
   ],
   imports: [
     BrowserModule,

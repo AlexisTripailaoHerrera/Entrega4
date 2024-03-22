@@ -85,4 +85,13 @@ public class UsuarioDao {
             return "Usuario no existe";
         }
     }
+
+    public List<UsuariosEliminados> obtenerUsuariosEliminados(){
+        List resultList = em.createQuery("SELECT u FROM UsuariosEliminados u", UsuariosEliminados.class)
+                .getResultList();
+        if (!resultList.isEmpty()) {
+            return resultList;
+        }
+        return Collections.emptyList();
+    }
 }

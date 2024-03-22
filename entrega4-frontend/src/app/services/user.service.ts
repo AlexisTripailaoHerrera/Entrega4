@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UsuarioVo } from '../models/users.model';
+import { UsuarioEliminado, UsuarioVo } from '../models/users.model';
 import { map } from 'rxjs/operators';
 
 
@@ -28,7 +28,7 @@ export class UsuarioService {
     return this.http.post(`${this.baseUrl}`, usuarioData, { responseType: 'text' })
       .pipe(
         map((response: any) => {
-          return { mensaje: response }; // Transforma el texto simple en un objeto JSON con la propiedad "mensaje"
+          return { mensaje: response };
         })
       );
   }
@@ -56,6 +56,10 @@ export class UsuarioService {
       nuevoRut: nuevoRut,
       nuevoDv: nuevoDv
     });
+  }
+
+  obtenerUsuariosEliminados(): Observable<UsuarioEliminado[]> {
+    return this.http.get<UsuarioEliminado[]>(`${this.baseUrl}/eliminados`);
   }
 
 }

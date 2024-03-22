@@ -2,8 +2,10 @@ package cl.amisoft.entrega4backend.service.impl;
 
 import cl.amisoft.entrega4backend.dao.UsuarioDao;
 import cl.amisoft.entrega4backend.model.Usuario;
+import cl.amisoft.entrega4backend.model.UsuariosEliminados;
 import cl.amisoft.entrega4backend.service.UsuarioService;
 import cl.amisoft.entrega4backend.vo.UsuarioVo;
+import cl.amisoft.entrega4backend.vo.UsuariosEliminadosVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -84,6 +86,22 @@ public class UsuarioServiceImpl implements UsuarioService {
         }else{
             return "Usuario eliminado correctamente";
         }
+    }
+
+    @Override
+    public List<UsuariosEliminadosVo> obtenerUsuariosEliminados() {
+        List<UsuariosEliminados> usuariosEliminados = usuarioDao.obtenerUsuariosEliminados();
+        if (!usuariosEliminados.isEmpty()) {
+            return usuariosEliminados.stream().map(u -> new UsuariosEliminadosVo.Builder()
+                    .id(u.getId())
+                    .nombreEliminado(u.getNombreEliminado())
+                    .apellidoEliminado(u.getApellidoEliminado())
+                    .rutEliminado(u.getRutEliminado())
+                    .rutDvEliminado(u.getRutDvEliminado())
+                    .fechaEliminacion(u.getFechaEliminacion())
+                    .build()).collect(Collectors.toList());
+        }
+        return Collections.emptyList();
     }
 
 }
