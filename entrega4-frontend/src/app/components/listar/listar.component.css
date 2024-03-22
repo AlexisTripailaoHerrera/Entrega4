@@ -1,0 +1,16 @@
+.button-group {
+    justify-content: center;
+}
+
+.button-group button {
+    background-color: #0070b2;
+    color: white;
+}
+
+.table-bordered.custom-border th,
+.table-bordered.custom-border td {
+    border: 1px solid;
+    text-align: center;
+    border-color: #0070b2;
+    font-size:large;
+}

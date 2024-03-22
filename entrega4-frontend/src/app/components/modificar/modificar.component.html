@@ -4,7 +4,7 @@
     </div>
     <div style="display: flex; justify-content: center; align-items: center; height: 80vh;" *ngIf="usuario">
         <div style="width: 400px; padding: 30px; border: 1px solid #0070b2; border-radius: 5px;">
-            <div>
+            <div style="margin-top: 20px;">
                 <div style="margin-bottom: 10px;">
                     <label>Nombre:</label>
                     <input type="text" [(ngModel)]="usuario.nombre" name="nombre" style="display: block; width: 100%;">
@@ -25,10 +25,9 @@
 
                 <div class="button-group">
                     <button type="button" class="btn btn-lg" (click)="back()">Atrás</button>
-                    <button type="button" class="btn btn-lg"
-                        (click)="actualizarUsuario()">Actualizar</button>
+                    <button type="button" class="btn btn-lg" (click)="actualizarUsuario()">Actualizar</button>
                 </div>
-                
+
             </div>
         </div>
     </div>

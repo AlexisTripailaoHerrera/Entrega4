@@ -31,4 +31,8 @@ export class CrearComponent {
       );
   }
 
+  back(): void {
+    this.router.navigate(['/'])
+  }
+
 }

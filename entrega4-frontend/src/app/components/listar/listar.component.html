@@ -1,7 +1,7 @@
 <div>
     <app-nav-bar></app-nav-bar>
     <div class="container mt-5">
-        <table class="table table-striped table-bordered" style="text-align: center; border-color: #003f69;">
+        <table class="table table-bordered custom-border">
             <thead class="bg-light">
                 <tr>
                     <th>Id</th>
@@ -37,13 +37,13 @@
                     <td>
                         <p class="fw-normal mb-1">{{usuario.fechaModificacion}}</p>
                     </td>
-                    <td>
-                        <button type="button" (click)="goToEdit(usuario.id)" class="btn btn-primary btn-floating btn-lg" mdbRipple
+                    <td class="button-group">
+                        <button type="button" (click)="goToEdit(usuario.id)" class="btn btn-floating btn-lg" mdbRipple
                             style="margin: 3px;">
                             <i class="far fa-edit"></i>
                         </button>
                         <button (click)="borrarUsuario(usuario.id, i)" style="cursor:pointer;" type="button"
-                            class="btn btn-primary btn-floating btn-lg" mdbRipple style="margin: 3px;">
+                            class="btn btn-floating btn-lg" mdbRipple style="margin: 3px;">
                             <i class="far fa-trash-alt"></i>
                         </button>
                     </td>

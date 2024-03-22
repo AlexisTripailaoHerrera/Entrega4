@@ -2,8 +2,8 @@
     <div>
         <app-nav-bar></app-nav-bar>
     </div>
-    <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-        <div style="width: 300px; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
+    <div style="display: flex; justify-content: center; align-items: center; height: 80vh;">
+        <div style="width: 400px; padding: 30px; border: 1px solid #0070b2; border-radius: 5px;">
             <div style="margin-top: 20px;">
                 <div style="margin-bottom: 10px;">
                     <label>Nombre:</label>
@@ -21,8 +21,10 @@
                     <label>DV Rut:</label>
                     <input type="text" [(ngModel)]="rutDv" style="display: block; width: 100%;">
                 </div>
-                <button (click)="crearUsuario()" style="width: 100%;">Crear Usuario</button>
-                <div *ngIf="resultado" style="margin-top: 10px;">{{ resultado }}</div>
+                <div class="button-group">
+                    <button type="button" class="btn btn-lg" (click)="back()">Atrás</button>
+                    <button type="button" class="btn btn-lg" (click)="crearUsuario()">Añadir</button>
+                </div>
             </div>
         </div>
     </div>
