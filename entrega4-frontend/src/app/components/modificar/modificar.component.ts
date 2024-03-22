@@ -12,6 +12,7 @@ export class ModificarComponent implements OnInit {
 
   usuario: UsuarioVo | undefined;
   id: number | null = null;
+  mensaje: string = '';
 
   constructor(private usuarioService: UsuarioService, private router: Router) { }
 
@@ -31,14 +32,19 @@ export class ModificarComponent implements OnInit {
   actualizarUsuario(): void {
     if (this.usuario) {
       const rut = parseInt(this.usuario.rut) !== null ? parseInt(this.usuario.rut) : 0; // Valor predeterminado de 0 si this.nuevoRut es null
-      this.usuarioService.actualizarUsuario(this.usuario.id, this.usuario.nombre, this.usuario.apellido, rut, this.usuario.rutDV)
-        .subscribe(resultado => {
-          this.router.navigate(['/']);
-        });
+      if (this.usuario.id && this.usuario.nombre && this.usuario.apellido && rut && this.usuario.rutDV) {
+        this.usuarioService.actualizarUsuario(this.usuario.id, this.usuario.nombre, this.usuario.apellido, rut, this.usuario.rutDV)
+          .subscribe(resultado => {
+            this.mensaje = resultado;
+            this.router.navigate(['/']);
+          });
+      }else{
+        this.mensaje = "Debes ingresar todos los campos";
+      }
     }
   }
 
-  back(): void{
+  back(): void {
     this.router.navigate(['/'])
   }
 

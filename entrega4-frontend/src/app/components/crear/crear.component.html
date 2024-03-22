@@ -25,6 +25,7 @@
                     <button type="button" class="btn btn-lg" (click)="back()">Atrás</button>
                     <button type="button" class="btn btn-lg" (click)="crearUsuario()">Añadir</button>
                 </div>
+                <div class="message" *ngIf="mensaje" style="text-align: center;">{{mensaje}}</div>
             </div>
         </div>
     </div>

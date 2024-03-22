@@ -12,27 +12,43 @@ export class CrearComponent {
   apellido: string = '';
   rut: number = 0;
   rutDv: string = '';
-  resultado: string = '';
+  mensaje: string = '';
 
   constructor(private usuarioService: UsuarioService, private router: Router) { }
 
   crearUsuario(): void {
-    this.usuarioService.crearUsuario(this.nombre, this.apellido, this.rut, this.rutDv)
-      .subscribe(
-        resultado => {
-          this.resultado = resultado.mensaje;
-          if (resultado.mensaje === "Usuario creado exitosamente") {
-            this.router.navigate(['/']);
+    if (this.nombre && this.apellido && this.rut && this.rutDv) {
+      this.usuarioService.crearUsuario(this.nombre, this.apellido, this.rut, this.rutDv)
+        .subscribe(
+          resultado => {
+            this.mensaje = resultado.mensaje;
+            if (resultado.mensaje === "Usuario creado exitosamente") {
+              this.router.navigate(['/']);
+            }
+          },
+          error => {
+            console.error('Error al crear usuario:', error);
           }
-        },
-        error => {
-          console.error('Error al crear usuario:', error);
-        }
-      );
+        );
+    } else {
+      this.mensaje = "Debes ingresar todos los campos";
+    }
   }
 
   back(): void {
     this.router.navigate(['/'])
+  }
+
+  minimaLongitud(rut: number) {
+    let longitudMinima: number = 8;
+    let rutStr = rut.toString();
+    let longitudRut = rutStr.length;
+
+    if (longitudRut !== longitudMinima) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }
